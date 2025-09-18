@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Labeling 101 | 数据标注与策展指南</title>
+  <meta name="description" content="面向工程师与研究者的数据标注、数据策展与大模型实践指南。">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <div class="logo">Data Labeling 101</div>
+      <a class="cta" href="#start">快速开始</a>
+    </nav>
+    <div class="hero__content">
+      <h1>数据标注：驱动大模型的核心燃料</h1>
+      <p>大模型时代，数据质量决定模型上限。通过系统化的数据策展流程，工程师与研究者可以把业务知识沉淀为高质量的训练与评估数据，构建可信赖的 AI 系统。</p>
+      <div class="hero__actions">
+        <a class="button" href="#curation">了解数据策展全流程</a>
+        <a class="button button--ghost" href="#tools">查看必备工具</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="importance" id="why">
+      <div class="section__header">
+        <span class="eyebrow">Why Now</span>
+        <h2>为什么数据标注是一个值得投入的方向？</h2>
+      </div>
+      <div class="cards cards--3">
+        <article class="card">
+          <h3>模型越来越大，但需要的仍是高质量数据</h3>
+          <p>预训练模型只是起点。真实世界场景需要贴合业务的数据分布与领域知识，标注数据的每一次迭代都会让模型性能跃升。</p>
+        </article>
+        <article class="card">
+          <h3>优质数据能显著降低训练成本</h3>
+          <p>通过精选数据集、去除噪声与偏差，可以减少训练所需的算力与时间，让资源集中在最有价值的数据上。</p>
+        </article>
+        <article class="card">
+          <h3>合规、安全与可解释性的刚性要求</h3>
+          <p>从金融到医疗，数据标注流程是合规审计与责任追踪的关键节点。结构化的策展流程让系统更透明、更可信。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="curation" id="curation">
+      <div class="section__header">
+        <span class="eyebrow">Lifecycle</span>
+        <h2>数据策展的 6 个阶段</h2>
+        <p>策展流程并非线性，而是持续循环。每个阶段都可以借助工具、自动化与协作机制加速。</p>
+      </div>
+      <ol class="timeline">
+        <li>
+          <div class="timeline__title">定义目标与评价标准</div>
+          <p>明确任务类型、业务价值、指标（如 F1、BLEU、Win-Rate）与容错边界。与业务、产品、合规团队对齐预期。</p>
+        </li>
+        <li>
+          <div class="timeline__title">数据采集与筛选</div>
+          <p>结合日志、公开语料、合成数据源。优先考虑数据权属、隐私与代表性。</p>
+        </li>
+        <li>
+          <div class="timeline__title">标注方案设计</div>
+          <p>设计标注指南、样例与质量标准。为标注者提供清晰决策树，明确冲突处理与升级机制。</p>
+        </li>
+        <li>
+          <div class="timeline__title">标注执行与监控</div>
+          <p>采用众包、内部团队或专家标注。实时监控进度、一致性（如 Cohen's kappa）与成本。</p>
+        </li>
+        <li>
+          <div class="timeline__title">质量评估与反馈</div>
+          <p>设立黄金集、交叉审查、抽检与自动化检测（如语言模型批注检测、统计异常）。</p>
+        </li>
+        <li>
+          <div class="timeline__title">部署与持续迭代</div>
+          <p>将数据集用于训练、评估与监控并记录影响。结合模型表现与新数据回流，持续更新。</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="audience" id="start">
+      <div class="section__header">
+        <span class="eyebrow">Getting Started</span>
+        <h2>工程师 &amp; 研究者的入门路径</h2>
+      </div>
+      <div class="split">
+        <div class="panel">
+          <h3>工程师</h3>
+          <ul>
+            <li>搭建可复用的数据仓库与版本管理（<a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a> + <a href="https://dvc.org/" target="_blank" rel="noopener noreferrer">DVC</a> / <a href="https://lakefs.io/" target="_blank" rel="noopener noreferrer">LakeFS</a>）。</li>
+            <li>使用 API &amp; SDK 将标注系统接入训练管线（<a href="https://airflow.apache.org/" target="_blank" rel="noopener noreferrer">Airflow</a>、<a href="https://www.kubeflow.org/" target="_blank" rel="noopener noreferrer">Kubeflow</a>、<a href="https://wandb.ai/site/solutions/llmops" target="_blank" rel="noopener noreferrer">LLMOps 平台</a>）。</li>
+            <li>实现持续评估：把在线反馈、日志、灰度指标回流至标注队列。</li>
+            <li>保障安全与合规：匿名化、脱敏、访问控制、权限审计。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>研究者</h3>
+          <ul>
+            <li>设计高质量标注指南与示例，减少标注者歧义。</li>
+            <li>构建黄金集与挑战集，对模型弱点进行有针对性的压力测试。</li>
+            <li>探索主动学习、少样本提示、合成数据来扩充长尾场景。</li>
+            <li>运用可视化与统计方法分析标注质量、模型偏差与公平性。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="tools" id="tools">
+      <div class="section__header">
+        <span class="eyebrow">Toolkit</span>
+        <h2>实用工具与平台推荐</h2>
+        <p>结合开源 + 商业工具，快速启动项目，并预留扩展空间。</p>
+      </div>
+      <div class="cards cards--3">
+        <article class="card">
+          <h3>开源工具</h3>
+          <ul>
+            <li><strong><a href="https://labelstud.io/" target="_blank" rel="noopener noreferrer">Label Studio</a></strong>：灵活支持文本、音频、图像，易于集成。</li>
+            <li><strong><a href="https://doccano.github.io/doccano/" target="_blank" rel="noopener noreferrer">Doccano</a></strong>：专注 NLP，适合实体识别、分类、QA。</li>
+            <li><strong><a href="https://www.lighttag.com/" target="_blank" rel="noopener noreferrer">LightTag</a></strong>：提供团队协作与质量控制功能。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>自动化增强</h3>
+          <ul>
+            <li><strong><a href="https://snorkel.ai/" target="_blank" rel="noopener noreferrer">Snorkel</a></strong>：程序化标注框架，适合快速生成训练集。</li>
+            <li><strong><a href="https://cleanlab.ai/" target="_blank" rel="noopener noreferrer">Cleanlab</a></strong>：自动识别噪声标签与数据异常。</li>
+            <li><strong><a href="https://prodi.gy/" target="_blank" rel="noopener noreferrer">Prodi.gy</a></strong>：基于 Active Learning 的轻量标注工具。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>大模型驱动</h3>
+          <ul>
+            <li><strong><a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noopener noreferrer">OpenAI GPT + 指令模板</a></strong>：用于初稿生成与对比标注。</li>
+            <li><strong><a href="https://humanloop.com/" target="_blank" rel="noopener noreferrer">HumanLoop</a> / <a href="https://scale.com/spellbook" target="_blank" rel="noopener noreferrer">Scale Spellbook</a></strong>：将人机协同纳入评估闭环。</li>
+            <li><strong><a href="https://python.langchain.com/docs/guides/evaluation" target="_blank" rel="noopener noreferrer">LangChain Evaluation</a></strong>：为多模态/对话式应用构建自动化对照评估。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="trends">
+      <div class="section__header">
+        <span class="eyebrow">Trends</span>
+        <h2>大模型时代的数据标注新思路</h2>
+      </div>
+      <div class="split">
+        <div class="panel">
+          <h3>人机协同的标注链</h3>
+          <p>利用模型生成候选标签，由人类审核与打分，快速收敛高质量标签。通过 RLHF、RLAIF、Chain-of-Thought 等范式让模型理解标注意图。</p>
+        </div>
+        <div class="panel">
+          <h3>数据合成与对抗样本</h3>
+          <p>借助 LLM 生成长尾示例或对抗样本，拉平模型在极端场景下的表现。需结合人工抽检与指标监控保证真实性。</p>
+        </div>
+        <div class="panel">
+          <h3>持续评测与对话安全</h3>
+          <p>构建安全红队数据集与敏感话题挑战集，结合自动化的对话安全扫描，确保上线产品符合规范。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="resources">
+      <div class="section__header">
+        <span class="eyebrow">Resources</span>
+        <h2>进阶学习资源</h2>
+      </div>
+      <ul class="resource-list">
+        <li><span class="resource-list__title"><a href="https://dawn.cs.stanford.edu/2021/07/16/data-centric-ai" target="_blank" rel="noopener noreferrer">Stanford DAWN - Data-centric AI 课程</a></span><span>了解以数据为中心的模型迭代方法论。</span></li>
+        <li><span class="resource-list__title"><a href="https://www.snorkel.ai/blog/" target="_blank" rel="noopener noreferrer">Snorkel Labs 博客</a></span><span>关于程序化标注与弱监督的实践案例。</span></li>
+        <li><span class="resource-list__title"><a href="https://openai.com/research/system-cards" target="_blank" rel="noopener noreferrer">OpenAI System Card</a> / <a href="https://www.anthropic.com/product/model-cards" target="_blank" rel="noopener noreferrer">Anthropic Model Card</a></span><span>学习行业标准的数据责任与透明化实践。</span></li>
+        <li><span class="resource-list__title"><a href="https://labelstud.io/cookbook/" target="_blank" rel="noopener noreferrer">Label Studio Cookbook</a></span><span>实操指南，带你在一周内搭建标注工作流。</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__content">
+      <div>
+        <h3>准备开启你的数据标注旅程了吗？</h3>
+        <p>从小规模试点开始，在真实用户反馈驱动下不断迭代数据集和模型。</p>
+      </div>
+      <div>
+        <a class="button" href="mailto:datasquad@example.com">联系合作</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
